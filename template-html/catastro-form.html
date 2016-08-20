@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Fixed Top Navbar Example for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!-- Custom styles for this template -->
+    <style>
+      body {
+        min-height: 2000px;
+        padding-top: 70px;
+      }
+    </style>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+        <div class="page-header">
+		  <a href="/documents/" class="btn btn-primary pull-right">Explore Documents</a>
+		  <h2 class="page-title">Upload Documents</h2>
+			<p>Allowed document types:</p>
+			<p>
+				<span class="label label-default">.doc</span>
+			</p>
+		</div>
+
+
+        <div class="row">    
+        	<form id="upload_form" method="post" enctype="multipart/form-data" action="/documents/upload" class="form-inline">	
+				<div class="col-md-8">
+				
+					<div class="row">
+						<div class="form-group">
+						    <label>Nro</label>
+						    <input readonly="true" type="text" class="form-control" value="11" />
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group">
+						    <label>Zona</label>
+						    <input type="text" class="form-control" name="zona" />
+						</div>
+						<div class="form-group">
+						    <label>Manzana</label>
+						    <input type="text" class="form-control" />
+						</div>		
+						<div class="form-group">
+						    <label>Lote</label>
+						    <input type="text" class="form-control" />
+						</div>		
+						<div class="form-group">
+						    <label>Piso Nivel</label>
+						    <input type="text" class="form-control" />
+						</div>		
+						<div class="form-group">
+						    <label>Dpto. Salon</label>
+						    <input type="text" class="form-control" />
+						</div>		
+					</div>
+
+					<div class="row">
+						<div class="form-group">
+						    <label>Nro. Manzana</label>
+						    <input type="text" class="form-control" name="zona" />
+						</div>
+						<div class="form-group">
+						    <label>Nro. Lote</label>
+						    <input type="text" class="form-control" />
+						</div>		
+						<div class="form-group">
+						    <label>Finca</label>
+						    <input type="text" class="form-control" />
+						</div>		
+						<div class="form-group">
+						    <label>Superficie</label>
+						    <input type="text" class="form-control" />
+						</div>		
+						<div class="form-group">
+						    <label>Valor Fiscal</label>
+						    <input type="text" class="form-control" />
+						</div>		
+					</div>
+
+					<div class="row">
+						<div class="form-group">
+						    <label>Barrio</label>
+						    <select class="form-control" name="zona">
+						    	<option>Barrio 1</option>
+						    </select>
+						</div>
+						<div class="form-group">
+						    <label>Zona Urbana</label>
+						    <select class="form-control" name="zona">
+						    	<option>Zona 1</option>
+						    </select>
+						</div>			
+					</div>
+
+					<div class="row">
+						<p>Frentes:</p>
+
+						<table class="table table-striped" id="tableFrente">
+					        <thead>
+					          <tr>
+					            <th>#</th>
+					            <th>Cardinalidad</th>
+					            <th>Longitud</th>
+					            <th>Calle</th>
+					            <th>Tipo Pavimiento</th>
+					            <th>Accion</th>
+					          </tr>
+					        </thead>
+					        <tbody>
+					          <tr>
+					            <th scope="row">1</th>
+					            <td>
+					            	<select class="form-control" name="zona">
+								    	<option>Norte</option>
+								    </select>
+					            </td>
+					            <td>
+					            	<input type="text" class="form-control" />
+					            </td>
+					            <td>
+					            	<select class="form-control" name="zona">
+								    	<option>Calle 1</option>
+								    </select>
+					            </td>
+					            <td>
+					            	<select class="form-control" name="zona">
+								    	<option>Pavimento 1</option>
+								    </select>
+					            </td>
+					            <td>
+					            	<a href="javascript:;">Eliminar</a>
+					            </td>
+					          </tr>
+					        </tbody>
+					    </table>
+
+					    <button type="button" class="btn btn-default" id="agregarFrente">Agregar Frente</button>
+					</div>
+
+					<div class="row">
+						<p>Propietarios:</p>
+
+						<table class="table table-striped">
+					        <thead>
+					          <tr>
+					            <th>#</th>
+					            <th>Propietario</th>
+					            <th>Situacion</th>
+					            <th>Tipo Propietario</th>
+					            <th>Accion</th>
+					          </tr>
+					        </thead>
+					        <tbody>
+					          <tr>
+					            <th scope="row">1</th>
+					            <td>
+					            	<select class="form-control" name="zona">
+								    	<option>2534554 - Persona 1</option>
+								    </select>
+					            </td>
+					            <td>
+					            	<select class="form-control" name="zona">
+								    	<option>Situ 1</option>
+								    </select>
+					            </td>
+					            <td>
+					            	<select class="form-control" name="zona">
+								    	<option>Tipo Propietario</option>
+								    </select>
+					            </td>
+					            <td>
+					            	<a href="javascript:;">Eliminar</a>
+					            </td>
+					          </tr>
+					        </tbody>
+					    </table>
+
+					    <button type="button" class="btn btn-default">Agregar Propietario</button>
+					</div>
+
+					<div class="row">
+						<p>Edificaciones:</p>
+
+						<table class="table table-striped">
+					        <thead>
+					          <tr>
+					            <th>#</th>
+					            <th>Nro</th>
+					            <th>Tipo</th>
+					            <th>Superficie</th>
+					            <th>Valor</th>
+					            <th>Accion</th>
+					          </tr>
+					        </thead>
+					        <tbody>
+					          <tr>
+					            <th scope="row">1</th>
+					            <td>
+					            	<input type="text" class="form-control" />
+					            </td>
+					            <td>
+					            	<input type="text" class="form-control" />
+					            </td>
+					            <td>
+					            	<input type="text" class="form-control" />
+					            </td>
+					            <td>
+					            	<input type="text" class="form-control" />
+					            </td>
+					            <td>
+					            	<a href="javascript:;">Eliminar</a>
+					            </td>
+					          </tr>
+					        </tbody>
+					    </table>
+
+					    <button type="button" class="btn btn-default">Agregar Edificacion</button>
+					</div>
+				
+				</div>
+				<div class="col-md-4">
+					<div class="row">
+						<div class="form-group">
+					      <label class="col-sm-2 control-label">Seleccionar Capa</label>
+					      <div class="col-sm-10">
+					        <input type="text" id="shape_id" name="shape_id" />
+					      </div>
+					    </div>	
+					</div>
+					
+
+				    <button type="button" class="btn btn-default">Ir a Capa</button>
+				    <button type="button" class="btn btn-default">Agregar Capa</button>
+				</div>
+			</form>
+		</div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+	    jQuery(document).ready(function($){
+			$('#agregarFrente').click(function(){
+				var linea = $('#tableFrente tbody tr').first().clone(false);
+				$(linea).find('th').html('');
+				$(linea).appendTo('#tableFrente tbody');
+			});
+		});
+
+	    
+	</script>
+  </body>
+</html>

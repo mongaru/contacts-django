@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <div class="container">
+
+        <h1 id="helper-classes" class="page-header">Contactos</h1>
+
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Accion</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for contacto in contactos %}
+                <tr>
+                    <th scope="row">{{ contacto.pk }}</th>
+                    <td>{{ contacto.nombre }}</td>
+                    <td>{{ contacto.apellido }}</td>
+                    <td><a href="/contact/edit/{{ contacto.pk }}">Editar</a> / <a href="/contact/delete/{{ contacto.pk }}">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+    </div> <!-- /container -->
+
+
+{% endblock %}
+
